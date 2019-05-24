@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+        {% block content %}
+
+            <section class="introduction">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <article class="card m-5">
+                                <div class="card-header mb-2">
+                                    <h1 class="display-4">Keras-audio</h1>
+                                    <h3 class="text-muted">Resnet </h3>
+                                </div>
+                                <div class="card-body lead">
+                                    <p>Es una arquitectura introducida por Microsoft , ganando la competición
+                                        ILSVRC(ImageNet Large Scale Visual Recognition Challenge) en el año 2015. En el
+                                        siguiente enlace se puede acceder al paper: <a
+                                                href="https://arxiv.org/abs/1512.03385">aquí</a>.</p>
+                                    <img width="100%" class="embed-responsive"
+                                         src="http://www.jesusutrera.com/articles/img/resnet.png"/>
+                                    <p>
+                                        La idea, muy resumida, se basa en aumentar el número de capas introduciendo una
+                                        conexión residual (con una capa identidad). Esta capa pasa a la siguiente
+                                        directamente, mejorando el proceso de aprendizaje.
+                                        <a target="_blank" href="https://enmilocalfunciona.io/deep-learning-basico-con-keras-parte-4-resnet/">(Utrera,
+                                            J)</a>
+                                    </p>
+                                    <p>
+                                        ¿Qué problema resuelve ResNet?
+                                        Cuando las redes más profundas comienzan a converger, se ha expuesto un problema
+                                        de degradación: con el aumento de la profundidad de la red, la precisión se
+                                        satura y luego se degrada rápidamente.
+                                        <a  target="_blank" href="https://medium.com/datos-y-ciencia/modelos-cnn-en-la-clasificaci%C3%B3n-de-im%C3%A1genes-cl%C3%A1sicas-y-modernas-d072a6718689">(Prakash,
+                                            J)</a>
+
+
+                                    </p>
+                                     <p>Puedes observar el resultado desde <a target="_blank"
+                                                                     href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/view/keras-audio-resnet-results.html">
+                                aquí</a>
+                            </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        {% endblock %}

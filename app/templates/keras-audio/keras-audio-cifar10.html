@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="introduction">
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <article class="card m-5">
+                        <div class="card-header mb-2">
+                            <h1 class="display-4">Keras-audio</h1>
+                            <h3 class="text-muted">Cifar 10</h3>
+                        </div>
+                        <div class="card-body lead">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5>CIFAR-10 - Reconocimiento de objetos en imágenes</h5>
+                                    <p>CIFAR-10 es un conjunto de datos de visión artificial establecido que se
+                                        utiliza para el reconocimiento de objetos. Los datos CIFAR-10 consisten en
+                                        60.000 (32×32) imágenes en color en 10 clases, con 6.000 imágenes por clase.
+                                        Hay 50.000 imágenes de entrenamiento y 10.000 imágenes de prueba en los
+                                        datos oficiales. Las clases de etiqueta en el set de datos son:
+                                    <ul>
+                                        <li>
+                                            aeroplano
+                                        </li>
+                                        <li>
+                                            automovilístico
+                                        </li>
+                                        <li>
+                                            pájaro
+                                        </li>
+                                        <li>
+                                            gato
+                                        </li>
+                                        <li>
+                                            ciervo
+                                        </li>
+                                        <li>
+                                            can
+                                        </li>
+                                        <li>
+                                            rana
+                                        </li>
+                                        <li>
+                                            ecuestre
+                                        </li>
+                                        <li>
+                                            navío
+                                        </li>
+                                        <li>
+                                            camioneta
+                                        </li>
+
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <p>El conjunto de datos CIFAR-10 es una colección de imágenes que se utilizan comúnmente
+                                para entrenar el aprendizaje automático y los algoritmos de visión artificial. Es
+                                uno de los conjuntos de datos más utilizados para la investigación del aprendizaje
+                                automático.
+                                <a target="_blank" href="https://www.cs.toronto.edu/~kriz/cifar.html">Dataset</a>
+                            </p>
+                            <p>Los datos originales se encuentan expresados en una matriz numpy
+                                numérica de (10000 x 3072). El número de columnas (10000) indica el número de datos
+                                de la muestra.
+                                Como se indica en el conjunto de datos CIFAR-10/CIFAR-100, el vector de fila (3072)
+                                representa una imagen en color de 32x32 píxeles. Dado que este proyecto va a
+                                utilizar CNN para las tareas de clasificación, el vector de fila original no es
+                                apropiado. Para introducir los datos de una imagen en un modelo CNN, la dimensión
+                                del tensor de entrada debe ser (anchura x altura x canal_numérico) o (anchura x
+                                anchura x altura).
+                            </p>
+
+                            <h3>Creación del modelo </h3>
+                            <p>
+                                El modelo entero consiste en 12 capas totales.</p>
+                            <p> Puedes visualizar el código desde <a
+                                 target="_blank"   href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/edit/keras-audio/keras-audio/keras_audio/library/cifar10.py">aquí</a>
+                            </p>
+                            <p>A continuación una lista de qué técnica es aplicada para la construcción de cada modelo
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    1 Convolución con 32 filtros diferentes en tamaño de (3x3)
+                                </li>
+                                <li class="list-group-item">
+                                    2 Max Pooling por 2
+                                    <ul>
+                                        <li> Función de activación eLU
+                                        </li>
+                                        <li>Normalización de lotes
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item">
+                                    3 Max Pooling por 2
+                                    <ul>
+                                        <li> Función de activación eLU
+                                        </li>
+                                        <li>ormalización de lotes
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="list-group-item">
+                                    4 Dropout de 0.25
+                                </li>
+                                <li class="list-group-item">
+                                    5 Convolución con 64 filtros diferentes de tamaño (3x3)
+                                </li>
+                                <li class="list-group-item">
+                                    6 Max Pooling por 2
+                                    <ul>
+                                        <li>Función de activación eLU
+                                        </li>
+                                        <li>Normalización de lotes
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="list-group-item">
+
+                                    7 Convolución con 128 filtros diferentes de tamaño (3x3)
+                                </li>
+                                <li class="list-group-item">
+                                    8 Max Pooling por 2
+                                    <ul>
+                                        <li>Función de activación eLU
+                                        </li>
+                                        <li>Normalización de lotes
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="list-group-item">
+                                    9 Convolución con 256 filtros diferentes de tamaño (3x3)
+                                </li>
+                                <li class="list-group-item">
+
+                                    10 Max Pooling por 2
+                                    <ul>
+                                        <li>Función de activación eLU
+                                        </li>
+                                        <li>Normalización de lotes
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="list-group-item">
+
+                                    11 Dropout de 0.25
+                                    <ul>
+                                        <li>Aplanar la salida
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="list-group-item">
+
+                                    12 Capa totalmente conectada con 512 unidades
+                                    <ul>
+                                        <li>Función de activación eLU
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                            </ul>
+
+                            <h3>Cifar10 en la clasificación de audio </h3>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    • Después de 27 épocas la precisión (accuracy) supera el 80%.
+                                </li>
+                                <li class="list-group-item">
+                                    • Después de 39 épocas la precisión supera el 90%.
+                                </li>
+                            </ul>
+
+                            </ul>
+                            <p>En ambas situaciones la precisión de la validación está en 60%.</p>
+
+                            <p>Puedes observar el resultado desde <a target="_blank"
+                                                                     href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/view/keras-audio-cifar10-results.html">
+                                aquí</a>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$text-font-family: 'Roboto';
+$title-font-family: 'Lato';
+
+$primary-color: #82FF9B;
+$primary-font-color: #214027;
+
+$secondary-color: #67806C;
+$secondary-color-light: lighten($secondary-color, 20%);
+$secondary-font-color: #CC9554;
+$secondary-font-color-darken: darken($secondary-font-color, 10%);
+
+$accent-color: #B33749;
+

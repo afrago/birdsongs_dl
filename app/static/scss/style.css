@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+.content {
+  /* fallback/image non-cover color */
+  background-color: #82FF9B;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(#82FF9B, #e8ffed);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#82FF9B), to(#e8ffed));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(#82FF9B, #e8ffed);
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(#82FF9B, #e8ffed);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+
+section.menu nav {
+  background-color: #9db0a1 !important; }
+  section.menu nav .nav-link:hover {
+    background-color: #67806C;
+    color: white !important;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius: 0.5em; }
+
+.card {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+  .card .card-header {
+    font-family: "Lato";
+    background-color: #b9c7bc; }
+    .card .card-header .text-muted {
+      color: #506454 !important; }
+  .card .card-body {
+    font-family: "Roboto"; }
+  .card a {
+    color: #b77c36 !important; }
+
+footer {
+  background-color: #9db0a1 !important;
+  color: #b77c36;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
+

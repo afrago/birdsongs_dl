@@ -1,0 +1,42 @@
+.content{
+   @include gradient($primary-color, lighten($primary-color, 20%));
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+section.menu nav{
+   background-color: $secondary-color-light !important;
+   .nav-link:hover{
+     background-color: $secondary-color;
+     color: white !important;
+     @include rounded;
+   }
+}
+
+ .card{
+       @include box-shadow(0, 10px, 20px, rgba(0, 0, 0, 0.2));
+      .card-header{
+        font-family: $title-font-family;
+        background-color: lighten($secondary-color,30%);
+        .text-muted {
+              color: darken($secondary-color, 10%) !important;
+        }
+      }
+      .card-body{
+        font-family: $text-font-family;
+      }
+      a{
+        color: $secondary-font-color-darken !important;
+      }
+  }
+
+footer {
+  background-color: $secondary-color-light !important;
+  color: $secondary-font-color-darken;
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
+

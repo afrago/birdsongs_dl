@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="state-of-art">
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <article class="card m-5">
+                        <div class="card-header mb-2">
+                            <h1 class="display-3">3. Pruebas </h1>
+                        </div>
+                        <div class="card-body lead">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="mt-0">3.1. Creación de la infraestructura en la nube</h2>
+                                    <h3>Portal Azure </h3>
+                                    <p>Para evitar la necesidad de hardware específico para el desarrollo de este
+                                        proyecto, se ha optado por hacer uso de la nube de Azure para crear una máquina
+                                        virtual. Esta máquina tiene un sistema operativo Linux sobre el que se ha
+                                        generado un contenedor con Docker.</p>
+                                    <h3>Contenedor Docker </h3>
+                                    <p>Gracias a este entorno virtualizado, todo el código del proyecto, parámetros de
+                                        configuración y las dependencias están totalmente desacopladas, almacenadas en
+                                        un repositorio en la nube y gestionadas mediante el control de versiones de
+                                        DockerHub. Este contenedor está accesible desde el siguiente enlace:
+                                        <a href="https://hub.docker.com/r/afrago/keras-audio">Docker afrago</a></p>
+
+                                    <h3>Jupyter Notebook colaborativo</h3>
+                                    <p>Una de las principales ventajas del uso de la computación en la nube a sido el
+                                        hacer el desarrollo de todo el proyecto accesible desde internet a los
+                                        diferentes colaboradores siempre y cuando la máquina virtual se encontrase
+                                        arrancada.
+                                        Con el uso de Jupyter Notebook y abriendo los puertos correspondientes en la
+                                        máquina virtual se consigue un entorno colaborativo a la hora de realizar
+                                        pruebas sobre el código Python.
+                                        <a href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/tree?">Enlace
+                                            a Jupyter notebook</a>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card-body lead">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="mt-0">3.2 Proyecto de clasificación de música</h2>
+                                    <p>
+                                        Las pruebas iniciales sobre redes neuronales para la clasificación de música
+                                        se han realizado con un proyecto disponible en Github; <a
+                                            href="https://github.com/chen0040/keras-audio">chen0040/keras-audio:
+                                        keras project for audio deep learning</a>
+
+                                    </p>
+                                    <h3>Keras-audio: Proyecto Keras para aprendizaje profundo de audio.</h3>
+                                    <p>En el proyecto se utiliza un conjunto de datos para entrenar al clasificador
+                                        de música para que sea capaz de reconocer el género de las canciones. Este
+                                        conjunto de datos está alojado en
+                                        <a href="http://opihi.cs.uvic.ca/sound/genres.tar.gz">University of
+                                            Victoria</a></p> y consiste en una serie de
+                                    audios MP3 de diferentes géneros musicales; <i>blues, classical, country,
+                                    hiphop, jazz, metal, pop, reagge, rock.</i> El clasificador funciona
+                                    convirtiendo un archivo de audio o de canción en un <b>espectrograma mel</b> que
+                                    se
+                                    puede entender como <b>una matriz tridimensional de forma similar a una
+                                    imagen.</b>
+                                    <br> Dentro de las bibliotecas del proyecto keras-audio nos encontramos tres
+                                    archivos que hace referencia a las diferentes estructuras de redes
+                                    neuronales con las que se han realizado las pruebas de clasificación de
+                                    música por género.</p>
+                                    <p>
+                                        A continuación, una ejecución de la clasificación de música con cifar 10
+                                        <a href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/notebooks/keras-audio/keras-audio/keras-audio_verify_test_song.ipynb">Clasificación
+                                            de música</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

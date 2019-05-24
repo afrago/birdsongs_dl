@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="upload">
+        <div class="container">
+            <div class="my-3 alert alert-success alert-dismissible fade show" role="alert">
+                  <h5 class="lead">Selecciona un audio para evaluar en el servidor</h5>
+                  <p class="text-muted">Formulario para subir un audio al servidor y poder ejecutar el notebook
+                de comprobación. </p>
+            </div>
+            <div class="alert">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="list-group">
+                            {% for message in messages %}
+                                <li class="list-group-item"><i>{{ message }}</i><hr>
+                                {% if message == 'accipitridaeforme' %}  
+                                    <p>ORDEN: Accipitriformes. Incluye algunos grupos de aves de presa diurnas como los buitres.</p>
+                                {% elif message == 'anseriforme' %} 
+                                    <p>ORDEN: Anseriformes. Aves adaptadas para la vida acuática es el cado de los patos y gansos.</p>
+                                {% elif message == 'galliforme' %} 
+                                    <p>ORDEN: Galliformes. Aves gallináceas, un clásico ejemplo son los gallos o las perdices.</p>
+                                {% elif message == 'gaviforme' %} 
+                                   <p>ORDEN:   Gaviforme. Aves acuáticas conocidas popularmente como colimbos.</p>
+                                {% elif message == 'pelecaniformes' %} 
+                                   <p>ORDEN:   Pelecaniformes. Como su nombre indica agrupa a aves acuáticas como los pelícanos.</p>
+                               {% endif %}
+                                </li>    
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="card h-100">
+                        <div class="card-body ">
+                             <h5 class="card-title">Subir un audio al servidor</h5>
+                            <form method="post" action="upload"
+                                  enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <dl>
+                                        <p>
+                                            <input type="file" name="file" multiple="true" autocomplete="off" required
+                                                   class="btn">
+                                        </p>
+                                    </dl>
+                                    <button type="submit" value="Submit" class="btn btn-primary">Subir</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">Obtener audio desde xeno-canto</h5>
+                            <form method="post" action="xenocanto">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="btnAudio" required
+                                           aria-describedby="audio desde Xeno canto" placeholder="XC01223">
+                                    <button class="my-3 btn btn-dark">Descargar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script>
+ $(document).ready(function() {
+  $('.btn').on('click', function() {
+    var $this = $(this);
+    var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> analizando...';
+    if ($(this).html() !== loadingText) {
+      $this.data('original-text', $(this).html());
+      $this.html(loadingText);
+    }
+    setTimeout(function() {
+      $this.html($this.data('original-text'));
+    }, 5000);
+  });
+})
+</script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="result">
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <article class="card m-5">
+                        <div class="card-header mb-2">
+                            <h1 class="display-3">4. Resultados </h1>
+                        </div>
+                        <div class="card-body lead">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="mt-0">4.1. Clasificación de cantos de pajaros</h2>
+                                    <p>
+                                        Se ha puesto a trabajar, el dataset está accesible <a target="_blank" href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/tree/keras-audio/keras-audio/demo/very_large_data">aquí</a>, archivo zip de 1,34GB y
+                                        formateado cumpliendo la estructura de datos de chen0040/keras-audio obtenido
+                                        desde xeno-canto y donde aparecen audios de 7 familias de pájaros; accipitridae,
+                                        anser, galli, gaviidae, pelecaniformes, phoenicopterus, sphenicus.
+
+                                        En xeno-canto hay muchas más y con una clasificación más exacta, pero por ahora
+                                        para analizar el funcionamiento me parece que es suficiente. A continuación,
+                                        pongo los enlaces a las ejecuciones de los notebooks:
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <a target="_blank"
+                                               href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/view/keras-audio-XENO-CANTO_BirdSongs.html">Enlace
+                                                al resultado (html) de la ejecución </a> con la arquitectura
+                                            definida
+                                            para Cifar10.
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <h5>Enlace al notebook con un ejemplo de clasificación de cantos de aves <a target="_blank" href="http://afrago-anaconda3-panotti.westeurope.cloudapp.azure.com:8888/notebooks/keras-audio/keras-audio/keras-audio-XENO-CANTO_BirdSongs.ipynb">aquí</a></h5>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

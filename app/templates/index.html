@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="introduction">
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <article class="card m-5">
+                        <div class="card-header mb-2">
+                            <h1 class="display-3">Clasificación de cantos de aves</h1>
+                            <h3 class="text-muted"> 19TIC05: Curso especialización Deep Learning </h3>
+                        </div>
+                        <div class="card-body lead">
+                            <p>This project shows the steps that have been taken to develop an information science
+                                project
+                                from the beginning. The aim of this project is to develop a neural network that can
+                                distinguish the songs of birds. The idea is like other well-known projects like Shazam!
+                                Recognition of musical algorithms, fingerprints and processing, but using neural
+                                networks
+                                instead of using algorithm development.</p>
+                            <p>The thematic studies are related to the correct use of a <b>cloud infrastructure</b> for
+                                the
+                                study of data science, the understanding of different <b>music classification projects
+                                    available on the Internet</b> (mainly github), the <b>understanding of the
+                                    differences
+                                    between some deep networks </b>(Cifar10, ResNet) and the use of the <b>convolutional
+                                    recurrent neural network (CRNN) for music labelling instead of the convolutional
+                                    neural
+                                    network (CNN)</b>.</p>
+                            <p>The objectives of this project are related to the understanding of the concepts of the
+                                19TIC05: Deep Learning course organized by Bilbao AS-FABRIK and Mondragon
+                                Unibertsitatea.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="state-of-art">
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <article class="card m-5">
+                        <div class="card-header mb-2">
+                            <h1 class="display-3">1. Introducción </h1>
+                            <h3 class="text-muted"> Estado del arte </h3>
+                        </div>
+                        <div class="card-body lead">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="mt-0">1.2. Shazam: Reconocimiento de algoritmos musicales, mediante el
+                                        procesamiento de huellas dactilares</h2>
+                                    <p>Este concepto es parecido a la bien conocida aplicación Shazam, capaz de realizar
+                                        el
+                                        reconocimiento de música con una simple captura de 20 segundos de una canción.
+                                        Pero
+                                        la aproximación a la solución es totalmente diferente.</p>
+                                    <h3>Transformación discreta de Fourier </h3>
+                                    <p>Shazam hace uso del algoritmo matemático de la transformación discreta de
+                                        Fourier.
+                                        Las series de Fourier constituyen la herramienta matemática básica del análisis
+                                        para
+                                        analizar funciones periódicas a través de la descomposición de dicha función en
+                                        una
+                                        suma infinita de funciones sinusoidales mucho más simples.</p>
+                                    <img class="embed-responsive w-50 p-3 mx-auto"
+                                         src="https://upload.wikimedia.org/wikipedia/commons/a/af/Fourier_synthesis_square_wave_animated.gif"/>
+                                    <p>Analizar una señal en el dominio de la frecuencia simplifica muchas cosas
+                                        inmensamente. Es más cómodo en el mundo del procesamiento de señal digital
+                                        porque el
+                                        ingeniero puede estudiar el espectro (la representación de la señal en el
+                                        dominio de
+                                        la frecuencia) y determinar las frecuencias que están presentes y las que
+                                        faltan.
+                                        Los <b>M</b>el <b>F</b>requency <b>C</b>epstral <b>C</b>oeﬃcients (Coeﬁcientes
+                                        Cepstrales en las Frecuencias de Mel) o MFCCs son coeﬁcientes para la
+                                        representación
+                                        del habla basados en la percepción auditiva humana. Estos surgen de la
+                                        necesidad, en
+                                        el área del reconocimiento de audio automático, de extraer características de
+                                        las
+                                        componentes de una señal de audio que sean adecuadas para la identificación de
+                                        contenido relevante, así como obviar todas aquellas que posean información poco
+                                        valiosa como el ruido de fondo, emociones, volumen, tono, etc. y que no aportan
+                                        nada
+                                        al proceso de reconocimiento, al contrario, lo empobrecen.
+                                        Después de eso, uno puede hacer el filtrado, aumentar o disminuir algunas
+                                        frecuencias, o simplemente reconocer el tono exacto de las frecuencias.
+                                    </p>
+                                    <h3>Reconocimiento de Música: Las Huellas Digitales en una Canción </h3>
+                                    <p>Un desafortunado efecto colateral de FFT es que perdemos una gran cantidad de
+                                        información acerca de la sincronización (aunque teóricamente esto puede ser
+                                        evitado,
+                                        el rendimiento de gastos generales es enorme) para una canción de 3 minutos,
+                                        podemos
+                                        ver todas las frecuencias y sus magnitudes, pero no tenemos una pista cuando
+                                        aparecieron en la canción. ¡Pero esta es la clave de la información que hace que
+                                        la
+                                        canción sea así! De alguna manera tenemos que saber en qué momento cada
+                                        frecuencia
+                                        apareció.
+                                        Es por eso que introducimos el tipo de ventana deslizante, o fragmento de datos,
+                                        así
+                                        como la transformación de esta parte de la información. El tamaño de cada
+                                        fragmento
+                                        puede determinarse de distintas formas. Por ejemplo, si queremos grabar el
+                                        sonido en
+                                        estéreo, con muestras de 16 bits, a 44.100 Hz, un segundo de ese sonido será de
+                                        44.100 muestras * 2 bytes * 2 canales ≈ 176 kB. Si cogemos 4 kB para el tamaño
+                                        de un
+                                        segmento, tendremos 44 porciones de datos para analizar en cada segundo de la
+                                        canción. Esa es una buena densidad suficiente para el análisis detallado.
+                                        Una vez que tengamos la información acerca de la frecuencia de la señal, podemos
+                                        empezar a formar nuestra huella digital de la canción. Esta es la parte más
+                                        importante de todo el proceso de reconocimiento de música de Shazam. El
+                                        principal
+                                        desafío es cómo distinguir, en el océano de las frecuencias capturadas, las
+                                        frecuencias que son las más importantes. Intuitivamente, podemos buscar las
+                                        frecuencias con mayor magnitud (comúnmente llamadas picos).
+                                    </p>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a href="http://www.ee.columbia.edu/~dpwe/papers/Wang03-shazam.pdf">Wang,
+                                                ALC.
+                                                (2003).
+                                                <i>(An Industrial-Strength Audio Search Algorithm)</i>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://www.toptal.com/">Jovanocic, J. Shazam! (2015).
+                                                <i>(How does Shazam work? Music Recognition Algorithms, Fingerprinting,
+                                                    and
+                                                    Processing.)
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="state-of-art">
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <article class="card m-5">
+                        <div class="card-header mb-2">
+                            <h1 class="display-3">2. Datos </h1>
+                            <h3 class="text-muted"> Xeno-canto: <i>Compartiendo cantos de pájaros alrededor del
+                                mundo</i></h3>
+                        </div>
+                        <div class="card-body lead">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="mt-0">2.1. Base de datos de cantos de pájaros</h2>
+                                    <p>A través de ProgrammableWeb, sitio web con un repositorio de Web APIs
+                                        programables,
+                                        se ha localizado la web <a href="http://xeno-canto.org/">xeno-canto</a>, que
+                                        ofrece
+                                        como servicio una base de datos con la grabación de cantos y sonidos de pájaros.
+                                        El
+                                        formato de los audios es MP3.</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                Para la descarga de los audios se ha generado una cuenta en la
+                                                plataforma y
+                                                realizado una búsqueda por familia.
+                                                <a href="https://www.xeno-canto.org/contributor/ONPPIFSGNL">Perfil</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                A partir de la exportación del listado de audios a un CSV se han podido
+                                                generar los enlaces de descarga de los audios.
+                                               {# <p>
+                                                    <a class="btn btn-primary" data-toggle="collapse"
+                                                       href="#collapseExample" role="button" aria-expanded="false"
+                                                       aria-controls="collapseExample">
+                                                        Link with href
+                                                    </a>
+                                                    <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                                            data-target="#collapseExample" aria-expanded="false"
+                                                            aria-controls="collapseExample">
+                                                        Button with data-target
+                                                    </button>
+                                                </p>#}
+                                                <div class="collapse" id="collapseExample">
+                                                    <div class="card card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                                        accusamus terry richardson ad squid. Nihil anim keffiyeh
+                                                        helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                                        ea proident.
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                </article>
+            </div>
+        </div>
+        </div>
+    </section>
+
+{% endblock %}
